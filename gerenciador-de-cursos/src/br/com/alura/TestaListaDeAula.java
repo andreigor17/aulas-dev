@@ -21,7 +21,7 @@ public class TestaListaDeAula {
         
         Collections.sort(aulas);
         System.out.println(aulas);
-        
+        System.out.println();
         
         
         

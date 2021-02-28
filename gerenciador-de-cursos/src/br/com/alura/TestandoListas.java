@@ -2,6 +2,7 @@ package br.com.alura;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -11,9 +12,9 @@ public class TestandoListas {
         
     public static void main(String[] args){
         
-        String aula1 = "Conhecendo um pouco mais de listas";
-        String aula2 = "Modelando a classe Aula";
-        String aula3 = "Trabalhando com Cursos de Sets";
+        String aula1 = JOptionPane.showInputDialog("Insira a 1 aula");
+        String aula2 = JOptionPane.showInputDialog("Insira a 2 aula");
+        String aula3 = JOptionPane.showInputDialog("Insira a 3 aula");
         
         ArrayList<String> aulas =  new ArrayList<>();
         aulas.add(aula1);
@@ -27,7 +28,7 @@ public class TestandoListas {
         //System.out.println(aulas);
         
         for (String aula : aulas){
-            System.out.println("Aula: " + aula);
+           JOptionPane.showMessageDialog(null, aula);
            
         }
         
@@ -39,11 +40,11 @@ public class TestandoListas {
 //        }
         
         
-        aulas.add("Aumentando nosso conhecimento");
-        System.out.println(aulas);
-        Collections.sort(aulas);
-        System.out.println("Depois de ordenado");
-        System.out.println(aulas);
+//        aulas.add("Aumentando nosso conhecimento");
+//        System.out.println(aulas);
+//        Collections.sort(aulas);
+//        System.out.println("Depois de ordenado");
+//        System.out.println(aulas);
         
         
         

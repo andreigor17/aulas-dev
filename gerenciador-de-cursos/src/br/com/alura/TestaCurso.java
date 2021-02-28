@@ -18,7 +18,7 @@ public class TestaCurso {
        javaColecoes.adiciona(new Aula("Modelando com coleções", 21));
         
         System.out.println(javaColecoes.getAulas());
-        
+        System.out.println(javaColecoes.getTempoTotal());
         
     }
     
