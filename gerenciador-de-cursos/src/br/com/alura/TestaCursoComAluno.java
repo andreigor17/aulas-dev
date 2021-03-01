@@ -34,6 +34,8 @@ public class TestaCursoComAluno {
        javaColecoes.matricula(a2);
        javaColecoes.matricula(a3);
        
+      
+       
        //System.out.println("Todos os alunos matriculados nesse curso:" + javaColecoes.getAlunos());
         
 //        Aluno teste = new Aluno("Tiago Web", 1);
@@ -41,10 +43,11 @@ public class TestaCursoComAluno {
 //        System.out.println(teste.equals(a1));
         
        Set<Aluno> alunos = javaColecoes.getAlunos();
+        System.out.println(alunos.contains(a4));
        Iterator<Aluno> iterador =  alunos.iterator();
         while(iterador.hasNext()){
             Aluno proximo = iterador.next();
-            System.out.println(proximo);
+            System.out.println("--> " + proximo);
             
         }
         
