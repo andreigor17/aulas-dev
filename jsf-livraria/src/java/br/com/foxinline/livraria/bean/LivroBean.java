@@ -1,5 +1,6 @@
 package br.com.foxinline.livraria.bean;
 
+import br.com.foxinline.livraria.modelo.Livro;
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean
