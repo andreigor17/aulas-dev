@@ -4,12 +4,12 @@
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
              version="2.1">
 
-    <persistence-unit name="persistenceUnitName" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="contas" transaction-type="RESOURCE_LOCAL">
         <class>br.com.foxinline.projeto.modelo.Conta</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /> <!-- DB Driver -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/local" /> <!-- BD Mane -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/projeto-jpa" /> <!-- BD Mane -->
             <property name="javax.persistence.jdbc.user" value="postgres" /> <!-- DB User -->
             <property name="javax.persistence.jdbc.password" value="admin" /> <!-- DB Password -->
 

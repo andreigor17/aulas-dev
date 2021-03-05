@@ -1,10 +1,15 @@
 package br.com.foxinline.projeto.modelo;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 
 @Entity
 public class Conta {
+    
+    @Id
+    @GeneratedValue
     private Long id;
     private Integer agencia;
     private Integer numero;
