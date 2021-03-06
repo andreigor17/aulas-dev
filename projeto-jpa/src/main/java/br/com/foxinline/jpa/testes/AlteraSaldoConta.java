@@ -5,22 +5,20 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class CriaConta {
+public class AlteraSaldoConta {
 
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("contas");
         EntityManager em = emf.createEntityManager();
-
-        Conta conta = new Conta();
-        conta.setTitular("Tiago Web");
-        conta.setNumero(12345);
-        conta.setAgencia(2300);
+        
+        Conta contaDoAndre = em.find(Conta.class, 2L);
+        Conta contaDoTiago = em.find(Conta.class, 3L);
         
         em.getTransaction().begin();
-        em.persist(conta);
+        contaDoAndre.setSaldo(1650.0);
+        contaDoTiago.setSaldo(1650.0);
         em.getTransaction().commit();
-        
-        
+
     }
 
 }
