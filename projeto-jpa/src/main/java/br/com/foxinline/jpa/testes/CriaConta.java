@@ -12,9 +12,10 @@ public class CriaConta {
         EntityManager em = emf.createEntityManager();
 
         Conta conta = new Conta();
-        conta.setTitular("Tiago Web");
-        conta.setNumero(12345);
+        conta.setTitular("André Igor Lopes");
+        conta.setNumero(29411);
         conta.setAgencia(2300);
+        conta.setSaldo(1650.0);
         
         em.getTransaction().begin();
         em.persist(conta);

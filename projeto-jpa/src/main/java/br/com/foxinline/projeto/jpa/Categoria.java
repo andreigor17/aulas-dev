@@ -14,6 +14,13 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+
+    @Override
+    public String toString() {
+        return nome + " - " + id; //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
     
     @Deprecated
     public Categoria(){

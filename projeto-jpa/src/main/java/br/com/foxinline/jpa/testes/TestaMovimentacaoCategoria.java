@@ -20,7 +20,7 @@ public class TestaMovimentacaoCategoria {
         Categoria categoria2 = new Categoria("Negocios");
         
         Conta conta = new Conta();
-        conta.setId(3L);
+        conta.setId(2L);
         
         
         Movimentacao movimentacao = new Movimentacao();
@@ -31,7 +31,7 @@ public class TestaMovimentacaoCategoria {
         List<Categoria> categorias = new ArrayList<>();
         categorias.add(categoria);
         categorias.add(categoria2);
-        movimentacao.setCategoria(categorias);
+        movimentacao.setCategorias(categorias);
         movimentacao.setConta(conta);
         
         
@@ -42,7 +42,7 @@ public class TestaMovimentacaoCategoria {
         movimentacao2.setValor(new BigDecimal(1000.0));
         categorias.add(categoria);
         categorias.add(categoria2);
-        movimentacao2.setCategoria(categorias);
+        movimentacao2.setCategorias(categorias);
         movimentacao2.setConta(conta);
         
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("contas");

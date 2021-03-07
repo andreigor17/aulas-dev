@@ -27,18 +27,18 @@ public class Movimentacao {
     private String descricao;
     
     @ManyToMany
-    private List<Categoria> categoria;
+    private List<Categoria> categorias;
     
 
     @ManyToOne
     private Conta conta;
 
-    public List<Categoria> getCategoria() {
-        return categoria;
+    public List<Categoria> getCategorias() {
+        return categorias;
     }
 
-    public void setCategoria(List<Categoria> categoria) {
-        this.categoria = categoria;
+    public void setCategorias(List<Categoria> categoria) {
+        this.categorias = categoria;
     }
     
 
