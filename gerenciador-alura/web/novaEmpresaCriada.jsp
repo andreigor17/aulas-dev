@@ -1,18 +1,19 @@
-
-<%@page import="javax.swing.JOptionPane"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-
-<%
-String nomeEmpresa = "FoxInLine";
-System.out.println(nomeEmpresa);
-%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
+    <head>
+        <title>Verificação de Cadastro</title>
+    </head>
     <body>
-      
-   Empresa <% out.println(nomeEmpresa); %> cadastrada com sucesso!     
         
+        <c:if test="${not empty empresa}" >
+           Empresa ${ empresa } cadastrada com sucesso!  
+        </c:if>
+           
+           <c:if test="${ empty empresa}" >
+           Nenhuma empresa cadastrada!
+        </c:if>
         
+                    
     </body>
 </html>
