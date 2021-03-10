@@ -12,12 +12,21 @@
         <title>Lista Empresas</title>
     </head>
     <body>
+        
+         <c:if test="${not empty empresa}" >
+           Empresa ${ empresa } cadastrada com sucesso!  
+        </c:if>
+          
 
         <div>Lista de Empresas</div>
 
         <ul>
             <c:forEach items="${empresas}" var="empresa">
-                <li> ${empresa.nome} </li>
+                <li> ${empresa.nome} 
+                    <a href="/gerenciador-alura/removeEmpresa?id=${empresa.id}">remover</a
+                    
+                
+                </li>
             </c:forEach>
         </ul>
 
