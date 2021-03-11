@@ -1,4 +1,4 @@
-package br.com.foxinline.gerenciador.servlet;
+package br.com.foxinline.gerenciador.modelo;
 
 
 

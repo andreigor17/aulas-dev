@@ -1,10 +1,10 @@
-package br.com.foxinline.gerenciador.servlet;
+package br.com.foxinline.gerenciador.modelo;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-class Banco {
+public class Banco {
 
     private static List<Empresa> lista = new ArrayList();
     private static Integer chaveSequencial = 1;
@@ -44,5 +44,14 @@ class Banco {
         }
 
 
+    }
+
+    public Empresa buscaEmpresaPeloId(Integer id) {
+        for(Empresa empresa : lista){
+            if(empresa.getId()== id){
+                return empresa;
+            }
+        }
+        return null;
     }
 }
