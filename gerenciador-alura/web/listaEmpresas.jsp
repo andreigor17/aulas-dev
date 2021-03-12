@@ -23,8 +23,8 @@
         <ul>
             <c:forEach items="${empresas}" var="empresa">
                 <li> ${empresa.nome} 
-                    <a href="/gerenciador-alura/mostraEmpresa?id=${empresa.id}">editar</a>
-                    <a href="/gerenciador-alura/removeEmpresa?id=${empresa.id}">remover</a>
+                    <a href="/gerenciador-alura/entrada?acao=MostraEmpresa&id=${empresa.id}">editar</a>
+                    <a href="/gerenciador-alura/entrada?acao=RemoveEmpresa&id=${empresa.id}">remover</a>
 
                 </li>
             </c:forEach>
