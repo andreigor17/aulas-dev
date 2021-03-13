@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class AlteraEmpresa {
     
-    public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         
         
         String nomeEmpresa = request.getParameter("nome");
@@ -23,7 +23,7 @@ public class AlteraEmpresa {
         Empresa empresa = banco.buscaEmpresaPeloId(id);
         empresa.setNome(nomeEmpresa);
         
-        response.sendRedirect("entrada?acao=ListaEmpresas");
+        return "redirect:entrada?acao=ListaEmpresas";
         
     }
     
