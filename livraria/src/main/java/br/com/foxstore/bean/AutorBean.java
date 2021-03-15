@@ -2,7 +2,7 @@ package br.com.foxstore.bean;
 
 import br.com.foxstore.dao.DAO;
 import br.com.foxstore.modelo.Autor;
-import javax.annotation.ManagedBean;
+import javax.faces.bean.ManagedBean;
 
 
 
