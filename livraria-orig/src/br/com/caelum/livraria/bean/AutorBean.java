@@ -1,5 +1,7 @@
 package br.com.caelum.livraria.bean;
 
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -17,6 +19,10 @@ public class AutorBean {
 	
 	public Autor getAutor() {
 		return autor;
+	}
+	
+	public void setAutor(Autor autor) {
+		this.autor = autor;
 	}
 
 	public String gravar() {
@@ -60,5 +66,9 @@ public class AutorBean {
 	public void carregarAutorPelaId() {
 		this.autor = new DAO<Autor>(Autor.class).buscaPorId(autorId);
 		
+	}
+	
+	public List<Autor> getAutores() {
+		return new DAO<Autor>(Autor.class).listaTodos();
 	}
 }
