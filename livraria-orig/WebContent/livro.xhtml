@@ -10,6 +10,8 @@
 	
 		<ui:define name="titulo">
 			Novo Livro
+			 
+    
 		</ui:define>
 		<ui:define name="conteudo">
 		
@@ -53,10 +55,6 @@
 						<p:commandButton value="Gravar Autor" action="#{livroBean.gravarAutor}" process="@this autor" update="tabelaAutores" >
 					</p:commandButton>
 						
-					
-						
-						<p:commandLink value="Cadastrar novo autor" action="#{livroBean.formAutor}" immediate="true" 
-									update="@all"/>
 				</p:panelGrid>
 				
 				<p:dataTable value="#{livroBean.autoresDoLivro}" var="autor" id="tabelaAutores" emptyMessage="Nenhum autor selecionado">
@@ -73,37 +71,38 @@
 			
 
 		</h:form>
+		
+		
+		
 		<h:form id="formTabelaLivros">
-		<h:dataTable value="#{livroBean.livros}" var="livro" id="tabelaLivros">
-			<h:column>
-				<f:facet name="header">Titulo</f:facet>
+		<p:dataTable value="#{livroBean.livros}" var="livro" id="tabelaLivros" rows="5" paginator="true"
+				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} Livros"
+				rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+			<f:facet name="Tabela de Livros">ISBN</f:facet>
+			<p:column headerText="Titulo" sortBy="#{livro.titulo}" filterBy="#{livro.titulo}" filterMatchMode="startsWith" >
 				<h:outputText value="#{livro.titulo}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">ISBN</f:facet>
+			</p:column>
+			<p:column headerText="ISBN" sortBy="#{livro.isbn}" filterBy="#{livro.isbn}">
 				<h:outputText value="#{livro.isbn}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Preço</f:facet>
+			</p:column>
+			<p:column headerText="Preço" sortBy="#{livro.preco}">
 				<h:outputText value="#{livro.preco}" >
 				<f:convertNumber type="currency" pattern="R$ #0.00" currencySymbol="R$" locale="pt_BR" />
 				</h:outputText>
-			</h:column>
-			<h:column>
-				<f:facet name="header">Data</f:facet>
+			</p:column>
+			<p:column headerText="Data de Lançamento" sortBy="#{livro.dataLancamento}">
 				<h:outputText value="#{livro.dataLancamento.time}" >
 				<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo" />
 				</h:outputText>
-			</h:column>
-			<h:column>
-				<f:facet name="header">Editar</f:facet>
+			</p:column>
+			<p:column headerText="Editar">
 				<h:commandButton value="Editar" action="#{livroBean.carregar(livro)}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Remover</f:facet>
+			</p:column>
+			<p:column headerText="Remover">
 				<h:commandButton value="Remover" action="#{livroBean.remove(livro)}" />
-			</h:column>
-		</h:dataTable>
+			</p:column>
+		</p:dataTable>
 		</h:form>
 	</ui:define>
 	</ui:composition>
