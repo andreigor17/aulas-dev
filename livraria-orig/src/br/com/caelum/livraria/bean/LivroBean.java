@@ -23,6 +23,7 @@ public class LivroBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Livro livro = new Livro();
+	
 	private Integer autorId;
 
 	private List<Livro> livros;
@@ -76,14 +77,14 @@ public class LivroBean implements Serializable {
 			dao.atualiza(this.livro);	
 
 		}
-		
 
 		this.livro = new Livro();
 	}
 	
-	public void remove(Livro livro){
-		System.out.println("Removendo Livro");
+	public String remove(Livro livro){
+		System.out.println("Removendo Livro" + livro);
 		new DAO<Livro>(Livro.class).remove(livro);
+		return "livro?faces-redirect=true";
 	}
 	
 	public void removerAutorDoLivro(Autor autor) {
