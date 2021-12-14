@@ -5,15 +5,15 @@ import org.springframework.stereotype.Component;
 
 import com.irontech.ironfood.di.modelo.Cliente;
 
-@Profile("prod")
+@Profile("teste")
 @TipoNotificador(NivelUrgencia.URGENTE)
 @Component
-public class NotificadorEmail implements Notificador {
+public class NotificadorEmailMock implements Notificador {
 
 	private boolean caixaAlta;
 	
-	public NotificadorEmail() {
-		System.out.println("Notificador email REAL");
+	public NotificadorEmailMock() {
+		System.out.println("Notificador email DEV");
 	}
 
 	@Override
@@ -21,7 +21,7 @@ public class NotificadorEmail implements Notificador {
 		if(this.caixaAlta) {
 			mensagem = mensagem.toUpperCase();
 		}
-		System.out.printf("Notificando %s através do email %s: %s\n", cliente.getNome(), cliente.getEmail(), mensagem);
+		System.out.printf("Mock: A notificação seria para o %s através do email %s: %s\n", cliente.getNome(), cliente.getEmail(), mensagem);
 	}
 	
 	public void setCaixaAlta(boolean caixaAlta) {
