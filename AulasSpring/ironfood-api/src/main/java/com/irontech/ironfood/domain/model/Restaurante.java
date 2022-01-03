@@ -1,6 +1,7 @@
 package com.irontech.ironfood.domain.model;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Restaurante {
@@ -18,6 +22,11 @@ public class Restaurante {
 	private String nome;
 	@Column(name = "taxa_frete")
 	private BigDecimal taxaFrete;
+	@ManyToOne
+	private Cozinha cozinha;
+	@ManyToMany
+	private List<FormaPagamento> formasPagamento;
+	
 	public Long getId() {
 		return id;
 	}
@@ -36,6 +45,20 @@ public class Restaurante {
 	public void setTaxaFrete(BigDecimal taxaFrete) {
 		this.taxaFrete = taxaFrete;
 	}
+	
+	public Cozinha getCozinha() {
+		return cozinha;
+	}
+	public void setCozinha(Cozinha cozinha) {
+		this.cozinha = cozinha;
+	}
+		
+	public List<FormaPagamento> getFormasPagamento() {
+		return formasPagamento;
+	}
+	public void setFormasPagamento(List<FormaPagamento> formasPagamento) {
+		this.formasPagamento = formasPagamento;
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -51,6 +74,7 @@ public class Restaurante {
 		Restaurante other = (Restaurante) obj;
 		return Objects.equals(id, other.id);
 	}
+	
 	
 	
 
