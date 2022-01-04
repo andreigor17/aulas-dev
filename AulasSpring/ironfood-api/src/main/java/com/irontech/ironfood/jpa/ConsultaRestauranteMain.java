@@ -19,6 +19,7 @@ public class ConsultaRestauranteMain {
 		ApplicationContext applicationContext = new SpringApplicationBuilder(IronfoodApiApplication.class)
 				.web(WebApplicationType.NONE).run(args);
 
+		
 		RestauranteRepository restauranteRepository = applicationContext.getBean(RestauranteRepository.class);
 		List<Restaurante> restaurantes = restauranteRepository.listar();
 		for (Restaurante rests : restaurantes) {
