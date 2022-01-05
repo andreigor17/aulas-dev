@@ -1,4 +1,4 @@
-package com.irontech.ironfood.jpa;
+package com.irontech.ironfood.repository;
 
 import java.util.List;
 
