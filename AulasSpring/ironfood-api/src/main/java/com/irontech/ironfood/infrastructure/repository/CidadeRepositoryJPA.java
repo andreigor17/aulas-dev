@@ -40,8 +40,8 @@ public class CidadeRepositoryJPA implements CidadeRepository {
 	
 	@Override
 	@Transactional
-	public void remover(Cidade cidade) {
-		cidade = buscar(cidade.getId());
+	public void remover(Long id) {
+		Cidade cidade = buscar(id);
 		manager.remove(cidade);
 		
 	}

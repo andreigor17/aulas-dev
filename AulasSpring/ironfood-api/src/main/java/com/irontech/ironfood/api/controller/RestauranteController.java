@@ -17,29 +17,29 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.irontech.ironfood.domain.exception.EntidadeEmUsoException;
 import com.irontech.ironfood.domain.exception.EntidadeNaoEncontradaException;
-import com.irontech.ironfood.domain.model.Estado;
-import com.irontech.ironfood.domain.repository.EstadoRepository;
-import com.irontech.ironfood.domain.service.CadastroEstadoService;
+import com.irontech.ironfood.domain.model.Restaurante;
+import com.irontech.ironfood.domain.repository.RestauranteRepository;
+import com.irontech.ironfood.domain.service.CadastroRestauranteService;
 
 @RestController
-@RequestMapping("/estados")
-public class EstadoController {
-	
+@RequestMapping(value = "/restaurantes")
+public class RestauranteController {
+
 	@Autowired
-	public EstadoRepository estadoRespoRepository;
+	private RestauranteRepository restauranteRepository;
 	@Autowired
-	public CadastroEstadoService cadastroEstado;
-	
-	@GetMapping
-	public List<Estado> estados(){
-		return estadoRespoRepository.listar();
+	private CadastroRestauranteService cadastroRestaurante;
+
+	@GetMapping()
+	public List<Restaurante> listar() {
+		return restauranteRepository.listar();
 	}
-	
-	@GetMapping("/{estadoId}")
-	public ResponseEntity<Estado> buscar(@PathVariable Long estadoId) {
-		Estado estado =  estadoRespoRepository.buscar(estadoId);
-		if (estado != null) {
-			return ResponseEntity.status(HttpStatus.OK).body(estado);
+
+	@GetMapping("/{restauranteId}")
+	public ResponseEntity<Restaurante> buscar(@PathVariable Long restauranteId) {
+		Restaurante restaurante = restauranteRepository.buscar(restauranteId);
+		if (restaurante != null) {
+			return ResponseEntity.status(HttpStatus.OK).body(restaurante);
 		} else {
 			return ResponseEntity.notFound().build();
 		}
@@ -47,26 +47,26 @@ public class EstadoController {
 	}
 
 	@PostMapping
-	public ResponseEntity<?> adicionar(@RequestBody Estado estado) {
+	public ResponseEntity<?> adicionar(@RequestBody Restaurante restaurante) {
 		try {
-			estado = cadastroEstado.salvar(estado);
-			return ResponseEntity.status(HttpStatus.CREATED).body(estado);
+			restaurante = cadastroRestaurante.salvar(restaurante);
+			return ResponseEntity.status(HttpStatus.CREATED).body(restaurante);
 		} catch (EntidadeNaoEncontradaException e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
 
 	}
 
-	@PutMapping("/{estadoId}")
-	public ResponseEntity<Estado> atualizar(@PathVariable Long estadoId,
-			@RequestBody Estado estado) {
+	@PutMapping("/{restauranteId}")
+	public ResponseEntity<Restaurante> atualizar(@PathVariable Long restauranteId,
+			@RequestBody Restaurante restaurante) {
 		try {
-			Estado e = estadoRespoRepository.buscar(estadoId);
-			if (estado != null) {
-				BeanUtils.copyProperties(estado, e, "id");
+			Restaurante rest = restauranteRepository.buscar(restauranteId);
+			if (rest != null) {
+				BeanUtils.copyProperties(restaurante, rest, "id");
 
-				cadastroEstado.salvar(e);
-				return ResponseEntity.ok(e);
+				cadastroRestaurante.salvar(rest);
+				return ResponseEntity.ok(rest);
 			} else {
 				return ResponseEntity.notFound().build();
 			}
@@ -76,10 +76,10 @@ public class EstadoController {
 
 	}
 
-	@DeleteMapping("/{estadoId}")
-	public ResponseEntity<Estado> remover(@PathVariable Long estadoId) {
+	@DeleteMapping("/{restauranteId}")
+	public ResponseEntity<Restaurante> remover(@PathVariable Long restauranteId) {
 		try {
-			cadastroEstado.excluir(estadoId);
+			cadastroRestaurante.excluir(restauranteId);
 			return ResponseEntity.noContent().build();
 
 		} catch (EntidadeNaoEncontradaException e) {
@@ -90,5 +90,4 @@ public class EstadoController {
 		}
 
 	}
-
 }
