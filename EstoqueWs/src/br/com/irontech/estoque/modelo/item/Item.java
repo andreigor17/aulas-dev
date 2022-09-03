@@ -1,6 +1,8 @@
 package br.com.irontech.estoque.modelo.item;
 
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 public class Item {
 
 	private String codigo;
