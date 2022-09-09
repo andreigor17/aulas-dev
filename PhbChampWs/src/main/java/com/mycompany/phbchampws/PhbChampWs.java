@@ -4,11 +4,8 @@
  */
 package com.mycompany.phbchampws;
 
-import br.com.irontech.modelo.Player;
-import br.com.irontech.generico.ServicoGenerico;
 import br.com.irontech.ws.PlayerWs;
-import java.util.ArrayList;
-import java.util.List;
+import br.com.irontech.ws.TimeWs;
 import javax.xml.ws.Endpoint;
 
 /**
@@ -18,10 +15,11 @@ import javax.xml.ws.Endpoint;
 public class PhbChampWs {
         
     public static void main(String[] args) {
-        PlayerWs playerWs = new PlayerWs();
-        String url = "http://localhost:8080/playerws";
-        Endpoint.publish(url, playerWs);
+        //PlayerWs playerWs = new PlayerWs();
+        TimeWs timeWs = new TimeWs();
+        String url = "http://localhost:8080/timeWs";
+        Endpoint.publish(url, timeWs);
 
-        System.out.println("Testando PlayerWS " + playerWs.getPlayers().size());
+
     }
 }

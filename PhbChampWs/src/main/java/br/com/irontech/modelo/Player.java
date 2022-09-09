@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -29,7 +30,8 @@ public class Player {
     private String nome;
     private String nick;
     @Column(name = "sobrenome")
-    private String sobreNome;
+    private String sobreNome;    
+    private Long time;
 
     public String getNome() {
         return nome;
@@ -62,7 +64,15 @@ public class Player {
     public void setId(Long id) {
         this.id = id;
     }
-    
-    
+
+    public Long getTime() {
+        return time;
+    }
+
+    public void setTime(Long time) {
+        this.time = time;
+    }
+
+        
     
 }
